@@ -1,0 +1,20 @@
+ 
+
+    
+
+    useEffect(() => {
+        const intervalAge = setInterval(() => {
+            updateEdad();
+        }, 1000);
+        return () => {
+            clearInterval(intervalAge);
+        };
+    });
+
+    const updateEdad = () => {
+        return setUpdate({
+            edad: update.edad + 1,
+        });
+    };
+    updateEdad();
+    

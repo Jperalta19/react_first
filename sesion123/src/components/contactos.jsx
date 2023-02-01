@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-import {Contactos, } from '../Models/contactos.class';
+import {Contactos } from '../Models/contactos.class';
 
 function Contactoscomponets  ({contactos})  {
 
