@@ -1,0 +1,21 @@
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.Container-pag {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  font-size: calc(10px + 2vmin);
+}
+.fwsmall{
+  font-size: small;
+  margin-top: -2rem;
+}
+.hover{
+  cursor: pointer;
+  opacity: 50%;
+}
