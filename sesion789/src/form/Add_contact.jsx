@@ -10,10 +10,15 @@ const AddContact = ({Add}) => {
     function addContact(e){
         e.preventDefault();
 
-        const newContact1 = {nombre: name.current.value, apellidos: last_Name.current.value, telefono: telephone.current.value, estado: true};
+        const newContact1 = {nombre: name.current.value, apellidos: last_Name.current.value, telefono: telephone.current.value, estado: false};
 
-        
         Add(newContact1);
+
+        alert('El contacto fue agregado');
+
+        name.current.value="";
+        last_Name.current.value="";
+        telephone.current.value="";
     }
     return (
         <div className='card' style={{ width: '20rem' }}>
@@ -22,8 +27,8 @@ const AddContact = ({Add}) => {
                     <input ref={name} type='text' className='form-control' placeholder='Name' required autoFocus/>
                 </div>
                 <div className='form-group mb-2'>
-                    <input ref={last_Name}  type='text' className='form-control' placeholder='Last name'/>
                 </div>
+                    <input ref={last_Name}  type='text' className='form-control' placeholder='Last name'/>
                 <div className='form-group mb2'>
                     <input ref={telephone}  type='text' className='form-control' placeholder='Telephone number' aria-describedby="telefono" required/>
                     <small id="telefono" className='form-text text-muted fwsmall'>Put the numbers without hyphens.</small>

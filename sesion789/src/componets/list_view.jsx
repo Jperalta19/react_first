@@ -1,19 +1,21 @@
 import React, {useState} from 'react';
 import AddContact from '../form/Add_contact';
+import { default_datos } from '../models/contact';
 //import PropTypes from 'prop-types';
 import TableView from './table_view';
 
 
 const ListView = () => {
 
-    const defaultcontact = [{telefono: '8293239048', nombre: 'Juan E.', apellidos: 'Peralta R.', estado: false}];
+    const defaultdatos = [default_datos]
 
-    const [Newcontact, setNewcContact] = useState(defaultcontact);
+    const [Newcontact, setNewcContact] = useState(defaultdatos);
 
     function addContact(contact) {
         const tempContact = [...Newcontact];
         tempContact.push(contact);
         setNewcContact(tempContact);
+        
     }
 
     function changeState(contact){
@@ -50,11 +52,11 @@ const ListView = () => {
                     </tr>
                 </thead>                    
                     <tbody>
-                    {Newcontact.map((contact, index) => {
+                        { Newcontact.map((contact, index) => {
                             return (
                                 <TableView 
                                 key={index} contact={contact}  changeState={changeState} removeContact={removeContact}></TableView>
-                            );
+                            )
                         })}
                     </tbody>                    
             </table>                    
