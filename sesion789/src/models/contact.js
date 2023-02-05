@@ -1,8 +1,8 @@
   export class default_datos {
-    telefono= '0000000000';
-    nombre= 'nombre';
-    apellidos= 'apellidos';
-    estado= false;
+    telefono;
+    nombre;
+    apellidos;
+    estado;
 
         constructor(telefono, nombre, apellidos,estado) {
             this.nombre = nombre

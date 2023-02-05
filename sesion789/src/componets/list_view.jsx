@@ -7,7 +7,8 @@ import TableView from './table_view';
 
 const ListView = () => {
 
-    const defaultdatos = [default_datos]
+    const defaultdatos = [default_datos];
+    const [show, setShow] = useState(false);
 
     const [Newcontact, setNewcContact] = useState(defaultdatos);
 
@@ -15,6 +16,7 @@ const ListView = () => {
         const tempContact = [...Newcontact];
         tempContact.push(contact);
         setNewcContact(tempContact);
+        setShow(true);
         
     }
 
@@ -50,15 +52,21 @@ const ListView = () => {
                         <th>State</th>
                         <th>Option</th>
                     </tr>
-                </thead>                    
+                </thead>
                     <tbody>
-                        { Newcontact.map((contact, index) => {
+                    {Newcontact.map((contact, index) => {
                             return (
-                                <TableView 
-                                key={index} contact={contact}  changeState={changeState} removeContact={removeContact}></TableView>
+                                <TableView
+                                    key={index} 
+                                    contact={contact} 
+                                    changeState={changeState} 
+                                    removeContact={removeContact}
+                                    show={show}>
+                                </TableView>
                             )
-                        })}
-                    </tbody>                    
+                        })
+                    }
+                    </tbody> 
             </table>                    
             </div>
             </div>
