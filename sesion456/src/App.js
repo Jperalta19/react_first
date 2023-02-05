@@ -1,5 +1,6 @@
 import './App.css';
 import Solucion from './components/solucion';
+import what from './components/what';
 
 function App() {
   return (
