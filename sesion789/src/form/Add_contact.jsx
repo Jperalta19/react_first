@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 
 const AddContact = ({Add}) => {
@@ -13,8 +13,6 @@ const AddContact = ({Add}) => {
         const newContact1 = {nombre: name.current.value, apellidos: last_Name.current.value, telefono: telephone.current.value, estado: false};
 
         Add(newContact1);
-
-        alert('El contacto fue agregado');
 
         name.current.value="";
         last_Name.current.value="";
@@ -42,6 +40,7 @@ const AddContact = ({Add}) => {
 
 
 AddContact.propTypes = {
+    Add: PropTypes.func.isRequired,
 
 };
 

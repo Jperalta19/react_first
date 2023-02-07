@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 import AddContact from '../form/Add_contact';
-import { default_datos } from '../models/contact';
-//import PropTypes from 'prop-types';
 import TableView from './table_view';
 
 
 const ListView = () => {
 
-    const defaultdatos = [default_datos];
-    const [show, setShow] = useState(false);
+    const defaultdatos = [];
 
     const [Newcontact, setNewcContact] = useState(defaultdatos);
 
@@ -16,7 +13,6 @@ const ListView = () => {
         const tempContact = [...Newcontact];
         tempContact.push(contact);
         setNewcContact(tempContact);
-        setShow(true);
         
     }
 
@@ -35,15 +31,9 @@ const ListView = () => {
         setNewcContact(tempContact);
     }
 
-    return (
-        <div>
-        <AddContact Add={addContact}></AddContact>
-        <br/>
-            <div className='card' style={{ width: '38rem' }}>
-                <div className='card-body'>
-                    <h1 className='card-title'>Contact List</h1>
-                    <div className='card-text '>
-                <table >
+    const Contactview = () => {
+        return(
+            <table >
                 <thead>
                     <tr className='thead-dark' style={ {borderBottom: '1px dotted black'}}>
                         <th>Name</th>
@@ -60,14 +50,38 @@ const ListView = () => {
                                     key={index} 
                                     contact={contact} 
                                     changeState={changeState} 
-                                    removeContact={removeContact}
-                                    show={show}>
-                                </TableView>
+                                    removeContact={removeContact}/>
                             )
                         })
                     }
                     </tbody> 
-            </table>                    
+            </table>                        
+            
+        )
+    }
+
+    let view;
+    
+    if(Newcontact.length > 0 ){
+        view = <Contactview></Contactview>
+        
+    } else{
+        view = (
+            <h3>There are not contact to show</h3>
+        )
+    }
+
+
+    return (
+        <div>
+        <AddContact Add={addContact}/>
+        <br/>
+            <div className='card' style={{ width: '48rem' }}>
+                <div className='card-body'>
+                    <h1 className='card-title'>Contact List</h1>
+                    <div className='card-text '>
+                        {view}
+                        {Newcontact > 0 ? '': ''}                              
             </div>
             </div>
         </div>
@@ -76,8 +90,4 @@ const ListView = () => {
     );
 };
 
-
-ListView.propTypes = {
-
-};
 export default ListView;
