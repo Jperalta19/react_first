@@ -3,35 +3,35 @@ import PropTypes from 'prop-types';
 
 
 const AddContact = ({Add}) => {
-    const name = useRef('');
-    const last_Name = useRef('');
-    const telephone = useRef('');
+    const Name = useRef('');
+    const lastName = useRef('');
+    const phone = useRef('');
 
     function addContact(e){
         e.preventDefault();
 
-        const newContact1 = {nombre: name.current.value, apellidos: last_Name.current.value, telefono: telephone.current.value, estado: false};
+        const newContact1 = {Name: Name.current.value, lastName: lastName.current.value, phone: phone.current.value, status: false};
 
         Add(newContact1);
 
-        name.current.value="";
-        last_Name.current.value="";
-        telephone.current.value="";
+        Name.current.value="";
+        lastName.current.value="";
+        phone.current.value="";
     }
     return (
         <div className='card' style={{ width: '20rem' }}>
-            <form className='m-3'>
+            <form onSubmit={addContact} className='m-3'>
                 <div className='form-group mb-2'>
-                    <input ref={name} type='text' className='form-control' placeholder='Name' required autoFocus/>
+                    <input ref={Name} type='text' className='form-control' placeholder='Name' required autoFocus/>
                 </div>
                 <div className='form-group mb-2'>
+                <input ref={lastName}  type='text' className='form-control' placeholder='Last name'/>
                 </div>
-                    <input ref={last_Name}  type='text' className='form-control' placeholder='Last name'/>
                 <div className='form-group mb2'>
-                    <input ref={telephone}  type='text' className='form-control' placeholder='Telephone number' aria-describedby="telefono" required/>
+                    <input ref={phone}  type='text' className='form-control' placeholder='Telephone number' aria-describedby="telefono" required/>
                     <small id="telefono" className='form-text text-muted fwsmall'>Put the numbers without hyphens.</small>
                 </div>
-                <button onClick={addContact} className='btn btn-success mb-3' type="submit">Add contact</button>
+                <button className='btn btn-success mb-3' type="submit">Add contact</button>
             </form>
         </div>
         

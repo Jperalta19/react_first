@@ -4,15 +4,18 @@ const TableView = ({contact, changeState, removeContact,show}) => {
     
     return (
             <tr>
-                <td>{contact.nombre}</td>
-                <td>{contact.apellidos}</td>
-                <td>{contact.telefono}</td>
+                <td>{contact.Name}</td>
+                <td>{contact.lastName}</td>
+                <td>{contact.phone}</td>
                 <td>
-                    <button onClick={()=>{changeState(contact)}} className='btn text-light' style={{backgroundColor: contact.estado ? 'green' : 'red'}} > {contact.estado ? 'Conectado':'Desconectado'}</button>
+                    <button onClick={()=>{changeState(contact)}} className='btn text-light' style={{width:'130px', backgroundColor: contact.estado ? 'green' : 'red'}} > {contact.estado ? 'Connected':'Disconnected'}</button>
                 </td>
+                <td style={{}}>
+                    <button  onClick={()=>{removeContact(contact)}} className='btn btn-danger'>Remove</button>
+                    </td>  
                 <td>
-                    <button onClick={()=>{removeContact(contact)}} className='btn btn-danger'>Remove</button>
-                </td>                
+                <button className='btn' style={{width:'80px', background:'gray'}}>Edit</button>
+                </td>              
             </tr>
     )
 }

@@ -1,20 +1,21 @@
 import React, {useState} from 'react';
-import AddContact from '../form/Add_contact';
+import Addformformik from '../form/Addformformik';
+//import AddContact from '../form/Add_contact';
 import TableView from './table_view';
 
 
-const ListView = () => {
+const ListView = () => {   
 
-    const defaultdatos = [];
+    const contactList = []
 
-    const [Newcontact, setNewcContact] = useState(defaultdatos);
+    const [Newcontact, setNewcContact] = useState(contactList);
 
-    function addContact(contact) {
+    /*function addContact(contact) {
         const tempContact = [...Newcontact];
         tempContact.push(contact);
         setNewcContact(tempContact);
         
-    }
+    }*/
 
     function changeState(contact){
         const index = Newcontact.indexOf(contact);
@@ -33,14 +34,15 @@ const ListView = () => {
 
     const Contactview = () => {
         return(
-            <table >
+            <table className='table align-middle table-sm' >
                 <thead>
-                    <tr className='thead-dark' style={ {borderBottom: '1px dotted black'}}>
+                    <tr className='thead-dark' style={ {borderBottom: '1px dotted black',background:'blue'}}>
                         <th>Name</th>
                         <th>Last name</th>
                         <th>Number</th>
                         <th>State</th>
-                        <th>Option</th>
+                        <th>Remove</th>
+                        <th>Edit</th>
                     </tr>
                 </thead>
                     <tbody>
@@ -55,6 +57,9 @@ const ListView = () => {
                         })
                     }
                     </tbody> 
+                    <caption>
+                        <p>Tiene: {Newcontact.length} contactos agregados</p>
+                    </caption>
             </table>                        
             
         )
@@ -74,17 +79,17 @@ const ListView = () => {
 
     return (
         <div>
-        <AddContact Add={addContact}/>
+        {/*<AddContact Add={addContact}/>*/}
         <br/>
-            <div className='card' style={{ width: '48rem' }}>
+            <div className='card' style={{ width: '50rem' }}>
                 <div className='card-body'>
                     <h1 className='card-title'>Contact List</h1>
                     <div className='card-text '>
-                        {view}
-                        {Newcontact > 0 ? '': ''}                              
+                        {view}                         
             </div>
             </div>
-        </div>
+        </div> 
+        <Addformformik contactList={contactList}/>       
         </div>
         
     );
