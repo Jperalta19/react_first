@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Addformformik from '../form/Addformformik';
-//import AddContact from '../form/Add_contact';
+// import Addformformik from '../form/Addformformik';
+import AddContact from '../form/Add_contact';
 import TableView from './table_view';
 
 
@@ -10,12 +10,12 @@ const ListView = () => {
 
     const [Newcontact, setNewcContact] = useState(contactList);
 
-    /*function addContact(contact) {
+    function addContact(contact) {
         const tempContact = [...Newcontact];
         tempContact.push(contact);
         setNewcContact(tempContact);
         
-    }*/
+    }
 
     function changeState(contact){
         const index = Newcontact.indexOf(contact);
@@ -79,19 +79,18 @@ const ListView = () => {
 
     return (
         <div>
-        {/*<AddContact Add={addContact}/>*/}
+        {/*<Addformformik contactList={contactList}/>*/}
+        <AddContact Add={addContact}/>
         <br/>
             <div className='card' style={{ width: '50rem' }}>
                 <div className='card-body'>
                     <h1 className='card-title'>Contact List</h1>
                     <div className='card-text '>
                         {view}                         
-            </div>
-            </div>
+                    </div>
+                </div>
+            </div>              
         </div> 
-        <Addformformik contactList={contactList}/>       
-        </div>
-        
     );
 };
 

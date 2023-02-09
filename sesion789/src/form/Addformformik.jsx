@@ -21,9 +21,9 @@ const Addformformik = () => {
                 onSubmit={(values, actions) =>{
                     setTimeout(() => {
                         df.push(values);
-                        actions.resetForm({});
+                        alert(JSON.stringify(values, null, 2));
                         actions.setSubmitting(false);
-                    },500)
+                    },1000)
                 }}
                 validationSchema={TaskSchema}
                 
