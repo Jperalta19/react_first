@@ -17,7 +17,7 @@ const useContacts = (initialValue = []) => {
     const isEmpty = () => value.length === 0;
 
     return{
-        value, isEmpty, push, remove
+        value, setValue, isEmpty, push, remove,
     };
 
 };

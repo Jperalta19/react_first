@@ -6,15 +6,16 @@ import AddContact from '../form/Addcontact';
 const ContactView = ({ user }) => {
 
     const contacts = useContacts();
+    
 
 return (
     <div>
         <AddContact onAdd={(values) => contacts.push(values)} />
-        <Card  style={{ width: '45rem', marginTop:'0.3rem'}}>
+        <Card  style={{ width: 'auto', maxWidth:'60%' , marginTop:'0.3rem'}}>
         <Card.Body>
         <div className='d-flex justify-content-between '>
                 <h1 className='card-title'>Contact List</h1>
-                    <h1>Usuario:</h1>
+                    <h1>Usuario: {} </h1>
                 </div>
                 <Card.Text>
                     {contacts.isEmpty()?

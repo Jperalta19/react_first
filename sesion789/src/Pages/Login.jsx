@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import LoginForms from '../form/LoginForms';
 import { useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
   const [credentials, setCreadentials] = useState(null);
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Login = () => {
     if (credentials) {
       const c = JSON.stringify(credentials);
       localStorage.setItem('user', c);
-      navigate('/dashboard');
+      navigate('/Dashboard');
     }
   });
   return (
