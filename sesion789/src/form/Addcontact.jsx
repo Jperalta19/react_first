@@ -28,7 +28,6 @@ function CenterModal(props){
             props.onHide()           
         }, 1000);
         }}
-        //validationSchema={}
         >
         {({errors})=>
         <Form >
