@@ -1,17 +1,20 @@
 import React from 'react';
 import './App.css';
-import ListView from './componets/list_view';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import Dashboard from './Pages/Dashboard';
 
 
 function App() {
   return (
-    <div>      
-      <header className="Container-pag">
-        <div style={ {margin: '1rem'}}>
-        <ListView></ListView>
-        </div>      
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
